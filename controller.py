@@ -1,20 +1,20 @@
 def enter_scores(app):
-    input_scores = []
-    number_of_students = int(app.student_number_input)
-    input_scores.append(float(app.student_score_input))
+    try:
+        input_scores = []
+        number_of_students = int(app.student_number_input)
+        input_scores.append(float(app.student_score_input))
 
-    # TODO: Display the scores in the table widget
+        # TODO: Display the scores in the table widget
 
-    app.student_score_input.clear()
-
-    # TODO: Add exception handling
+        app.student_score_input.clear()
+    except ValueError:
+        app.error_label.setText("Please enter only numbers for the number of students and their scores.")
 
 
 def clear_entries(app):
     app.student_number_input.clear()
     app.student_score_input.clear()
-
-    # TODO: Clear the table widget
+    app.score_table.clear()
 
 
 def calculate_grades(app, scores):
@@ -35,5 +35,3 @@ def calculate_grades(app, scores):
             final_grades.append('F')
 
     # TODO: Display the grades on the table widget
-
-    # TODO: Add exception handling
